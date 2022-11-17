@@ -1,4 +1,4 @@
-module golang.design/x/clipboard
+module github.com/h3l/clipboard
 
 go 1.16
 
