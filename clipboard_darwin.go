@@ -17,6 +17,7 @@ package clipboard
 
 unsigned int clipboard_read_string(void **out);
 unsigned int clipboard_read_image(void **out);
+unsigned int clipboard_read_html(void **out);
 int clipboard_write_string(const void *bytes, NSInteger n);
 int clipboard_write_image(const void *bytes, NSInteger n);
 NSInteger clipboard_change_count();
@@ -40,6 +41,8 @@ func read(t Format) (buf []byte, err error) {
 		n = C.clipboard_read_string(&data)
 	case FmtImage:
 		n = C.clipboard_read_image(&data)
+	case FmtHTML:
+		n = C.clipboard_read_html(&data)
 	}
 	if data == nil {
 		return nil, errUnavailable

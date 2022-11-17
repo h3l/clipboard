@@ -79,14 +79,15 @@ const (
 	FmtText Format = iota
 	// FmtImage indicates image/png clipboard format
 	FmtImage
+	FmtHTML
 )
 
 var (
 	// Due to the limitation on operating systems (such as darwin),
 	// concurrent read can even cause panic, use a global lock to
 	// guarantee one read at a time.
-	lock = sync.Mutex{}
-	initOnce sync.Once
+	lock      = sync.Mutex{}
+	initOnce  sync.Once
 	initError error
 )
 
